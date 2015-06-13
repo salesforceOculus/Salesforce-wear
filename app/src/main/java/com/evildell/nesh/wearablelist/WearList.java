@@ -20,6 +20,7 @@ public class WearList extends Activity implements WearableListView.ClickListener
 
     private static ArrayList<Integer> mListItems;
     private static ArrayList<String> mListNames;
+    private static ArrayList<Integer> mListMarkers;
     private TextView mListHeader;
     private WearableListView mListView;
     private MyListAdapter mAdapter;
@@ -47,15 +48,26 @@ public class WearList extends Activity implements WearableListView.ClickListener
         mListItems.add(R.drawable.ic_action_video);
 
         mListNames = new ArrayList<String>();
-        mListNames.add("Attach");
-        mListNames.add("Call");
-        mListNames.add("Locate");
-        mListNames.add("Mail");
-        mListNames.add("Microphone");
-        mListNames.add("Photo");
-        mListNames.add("Star");
-        mListNames.add("User");
-        mListNames.add("Video");
+        mListNames.add("Patient Skull");
+        mListNames.add("Patient Veins");
+        mListNames.add("Patient Cube");
+        mListNames.add("Patient Ninja");
+        mListNames.add("Patient Sphere");
+        mListNames.add("Patient 6");
+        mListNames.add("Patient 7");
+        mListNames.add("Patient 8");
+        mListNames.add("Patient 9");
+
+        mListMarkers = new ArrayList<Integer>();
+        mListMarkers.add(R.drawable.m466);
+        mListMarkers.add(R.drawable.m792);
+        mListMarkers.add(R.drawable.m1009);
+        mListMarkers.add(R.drawable.m724);
+        mListMarkers.add(R.drawable.m354);
+        mListMarkers.add(R.drawable.m1009);
+        mListMarkers.add(R.drawable.m1009);
+        mListMarkers.add(R.drawable.m1009);
+        mListMarkers.add(R.drawable.m1009);
 
         // This is our list header
         mListHeader = (TextView) findViewById(R.id.header);
@@ -72,11 +84,9 @@ public class WearList extends Activity implements WearableListView.ClickListener
 
     @Override
     public void onClick(WearableListView.ViewHolder viewHolder) {
-      //  Toast.makeText(this, String.format("You selected item #%s", viewHolder.getPosition()+1), Toast.LENGTH_SHORT).show();
-
         Intent myIntent = new Intent(WearList.this, WearItem.class);
         myIntent.putExtra("name", mListNames.get(viewHolder.getPosition())); //Optional parameters
-        myIntent.putExtra("image", mListItems.get(viewHolder.getPosition()));
+        myIntent.putExtra("image", mListMarkers.get(viewHolder.getPosition()));
         WearList.this.startActivity(myIntent);
     }
 
